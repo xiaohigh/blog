@@ -1,0 +1,82 @@
+#logo a{
+	font-family: microsoft yahei;
+	padding-top:10px;
+	font-size:22px;
+}
+#header.full-header #logo {
+	border:none;
+}
+
+#primary-menu ul li a div{
+	font-family: microsoft yahei;
+	font-size:14px;
+	font-weight: 500
+}
+#top-search form input {
+	font-size:20px;
+	font-family: microsoft yahei;
+	font-weight: normal;
+}
+form label{
+	font-family: microsoft yahei;
+	font-weight: normal;
+}
+body{
+	font-family: microsoft yahei;
+	font-weight: normal;
+}
+ul.tab-nav:not(.tab-nav-lg) li a{
+	font-weight: normal;
+}
+.button{
+	font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: microsoft yahei
+}
+.entry-meta li{
+	font-style: normal;
+	font-family: microsoft yahei;
+}
+.more-link{
+	font-family: microsoft yahei;
+    font-style: normal;
+}
+
+.pager li:nth-child(1){
+	float:left;
+}
+
+.pager li:nth-child(2){
+	float:right;
+}
+#power
+{
+	font-size:14px;
+	font-weight: normal;
+	letter-spacing: 0.05em;
+}
+#primary-menu ul li .active{
+	color:#1ABC9C;
+}
+
+.entry-content{
+	padding-left:20px;
+}
+
+.content-wrap{
+	padding-top:40px;
+}
+
+#recom .spost{
+	padding-top:10px;
+	margin-top:10px;
+}
+
+#recom .spost:nth-child(1){
+	border-top:1px dashed #E5E5E5;
+}	
+
+.tab-container{
+	padding:0px;
+}

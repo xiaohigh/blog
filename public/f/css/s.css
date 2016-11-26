@@ -1,0 +1,66 @@
+#primary-menu > ul > li > a > div{
+	font-family: microsoft yahei;
+	font-weight:normal;
+	font-size: 14px;
+}
+
+*{font-family: microsoft yahei;}
+
+#page-title{padding: 0px;}
+
+#page-title{height:60px;}
+	
+#page-title .breadcrumb{
+	height:60px;
+	left:0px;
+	line-height: 60px;
+}
+
+#posts .entry-c h2 a{
+	font-weight: normal;
+	font-size: 16px;
+}
+
+#posts .entry-c .entry-meta li{
+	font-family: microsoft yahei;
+	font-size: 12px;
+}
+
+#posts .more-link{
+	font-family: microsoft yahei;
+	font-style: normal;
+}
+
+#posts .entry-content p{
+	margin-bottom: 10px;
+}
+
+.widget h4{
+	font-family: microsoft yahei;
+}
+
+.footer-widgets-wrap ul{
+	list-style: none;
+}
+.footer-widgets-wrap ul li{
+	float:left;margin-right: 20px;
+}
+
+.panel .panel-title{
+	font-weight: normal;
+}
+
+.content-wrap{
+	padding: 20px 0px;
+}
+
+.entry{
+	padding:0 0 15px;
+	margin:0 0 20px;
+}
+
+#respond label{
+	font-size: 12px;
+	font-weight: normal;
+	
+}
