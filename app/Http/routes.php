@@ -28,7 +28,6 @@ Route::post('reset', "LoginController@reset");
 //文章操作
 Route::get('post/{id}', 'IndexController@show')->where('id','[0-9]+');
 Route::get('post/list', 'IndexController@lists');
-Route::get('/markdown', 'IndexController@markdown');
 
 //后台的登录页面
 Route::get('admin/login', "AdminController@login");
@@ -40,17 +39,6 @@ Route::post('comment/insert', [
 	'uses' => 'CommentController@insert',
 	'middleware' => 'login'
 	]);
-
-//测试
-Route::get('test', 'IndexController@test');
-Route::get('sub', 'IndexController@sub');
-Route::get('pub', 'IndexController@pub');
-
-//在线订票
-Route::get('/piao', 'PiaoController@index');//订票首页
-Route::get('/cp', 'PiaoController@createPiaos');//创建票
-Route::post('/order', 'PiaoController@order');//创建票
-
 
 //后台相关操作 需要登录 验证
 Route::group(['middleware'=>['login']], function(){
@@ -81,5 +69,13 @@ Route::group(['middleware'=>['login']], function(){
 
 	//歌词i采集
 	Route::controller('sougou', 'SougouController');
+
+	//视频系列管理
+	Route::controller('admin/serie', 'SerieController');
+
+	//视频管理
+	Route::controller('admin/video', 'VideoController');
+
+
 });
 	

@@ -8,7 +8,7 @@
 			<!-- Logo
 			============================================= -->
 			<div id="logo">
-				<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png">小high博客</a>
+				<a href="/" class="">小high博客</a>
 			</div><!-- #logo end -->
 
 			<!-- Primary Navigation

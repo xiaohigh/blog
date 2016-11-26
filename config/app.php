@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',
 
     /*
     |--------------------------------------------------------------------------
@@ -204,6 +204,6 @@ return [
     'appname' => '小high博客',
     'blogname' => '小high博客',
 
-    'uploadDir' => './u/'.date('Ymd').'/'
+    'uploadDir' => './u/'
 
 ];

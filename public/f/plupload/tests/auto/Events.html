@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Plupload: Test Uploader Events</title>
+
+<script src="../loader.js"></script>
+
+<script type="text/javascript">
+
+QUnit.config.reorder = false;
+QUnit.config.autostart = false;
+QUnit.config.testTimeout = 10000;
+
+FileHash.init({
+	files: ['files/01.min.js', 'files/02.min.js'],
+	onready: function() {
+		QUnit.start();
+	}
+});
+
+
+o.Env.swf_url = "../../js/flash/Moxie.swf";
+o.Env.xap_url = "../../js/silverlight/Moxie.xap";
+
+
+module("Methods", {
+	setup: function() {
+		var options, up;
+
+		$('#qunit-fixture').html('<div id="uploader" />');
+
+		options = this.options = {
+			browse_button: 'uploader',
+			container: 'qunit-fixture',
+			url: "Plupload/upload.php"
+		};
+
+		up = this.up = new plupload.Uploader(options);
+
+		up.bind('PostInit', function() {
+			QUnit.start();
+		});
+
+		QUnit.stop();
+		up.init();
+	},
+
+	teardown: function() {
+		this.up.destroy();
+	}
+});
+
+
+test("trigger()", function(assert) {
+	var up = this.up, arg1 = 1, arg2 = { two: 2 };
+
+	up.bind('SomeEvent', function(up, one, two) {
+		ok(up instanceof plupload.Uploader, "First argument is always plupload.Uploader instance.");
+		deepEqual(one, arg1, "Second argument (number) successfully passed.");
+		deepEqual(two, arg2, "Thir argument (object) successfully passed.");
+	});
+
+	up.trigger('SomeEvent', arg1, arg2);
+});
+
+
+test("bind() - basic functionality, priority, scope.", function() {
+	var up = this.up, seq = [];
+	var someScope = {
+		prop1: 1,
+		prop2: 2
+	};
+
+	up.bind('SomeEvent', function() {
+		seq.push(1);
+		deepEqual(this, someScope, "Scope successfully altered.");
+	}, someScope, 5);
+
+	up.bind('SomeEvent', function() {
+		ok(!seq.length, "Handler with higher priority runs first.")
+		seq.push(2);
+	}, up, 10);
+
+	up.bind('SomeEvent', function() {
+		ok(this instanceof plupload.Uploader, "By default the scope is set to the object firing the event.");
+		seq.push(3);
+		return false;
+	});
+
+	up.bind('SomeEvent', function() {
+		// this should never run
+		ok(false, "Consequent event handlers cancelled by returning false.");
+		seq.push(4);
+	});
+
+	up.bind('TestComplete', function() {
+		deepEqual(seq, [2,1,3], "All expected event handlers have run and in order specified by priority.");
+	});
+
+	up.trigger('SomeEvent');
+	up.trigger('TestComplete');
+});
+
+
+test("unbind()", function(assert) {
+	var up = this.up, seq = [];
+
+	function handler1() {
+		seq.push(1);
+	}
+
+	function handler2() {
+		seq.push(2);
+	}
+
+	up.bind('SomeEvent', handler1);
+	up.bind('SomeEvent', handler2);
+
+	up.trigger('SomeEvent'); // will populate seq with [1,2]
+
+	up.unbind('SomeEvent', handler2);
+
+	up.trigger('SomeEvent'); // seq should become [1,2,1]
+
+	assert.deepEqual(seq, [1,2,1], "unbind successfull.");
+});
+
+
+test("unbindAll()", function(assert) {
+	var up = this.up, seq = [];
+
+	function handler1() {
+		seq.push(1);
+	}
+
+	function handler2() {
+		seq.push(2);
+	}
+
+	up.bind('SomeEvent', handler1);
+	up.bind('SomeEvent', handler2);
+
+	up.trigger('SomeEvent'); // will populate seq with [1,2]
+
+	up.unbindAll('SomeEvent');
+
+	up.trigger('SomeEvent'); // seq should become [1,2,1]
+
+	assert.deepEqual(seq, [1,2], "unbind successfull.");
+});
+
+
+
+module("Events");
+
+
+test('Init, PostInit', function(assert) {
+	expect(5);
+
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			Init: function(up, info) {
+				ok(true, "Init fired.");
+				deepEqual(up, uploader, 
+					"First argument is plupload.Uploader instance.");
+				ok(typeof(info) === 'object' && !o.isEmptyObj(info), 
+					"Second arguments is object.");
+				equal(info.runtime, 'test', 
+					"Runtime identifier passed in as second argument.");
+			},
+
+			PostInit: function() {
+				start();
+				ok(true, 'PostInit fired.');
+			},
+
+			Error: function() {
+				start();
+				ok(false, "Plupload cannot be initialized.");
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test('Error (plupload.INIT_ERROR)', function(assert) {
+	expect(4);
+
+	var uploader = new plupload.Uploader({
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			Init: function() {
+				ok(false, "Error fired.");
+				
+			},
+
+			Error: function(up, err) {
+				start();
+				ok(true, "Error fired.");
+
+				deepEqual(up, uploader, 
+					"First argument is plupload.Uploader instance.");
+				ok(typeof(err) === 'object' && !o.isEmptyObj(err), 
+					"Second arguments is object.");
+
+				equal(err.code, plupload.INIT_ERROR, 
+					"Error has plupload.INIT_ERROR code");
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test('Refresh', function(assert) {
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			PostInit: function() {
+				uploader.refresh();
+			},
+
+			Error: function() {
+				start();
+				ok(false, "Plupload cannot be initialized.");
+			}
+		},
+
+		init: {
+			Refresh: function() {
+				start();
+				ok(true, "Refresh fired.");
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test('Destroy', function(assert) {
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			PostInit: function() {
+				uploader.destroy();
+			},
+
+			Error: function() {
+				start();
+				ok(false, "Plupload cannot be initialized.");
+			}
+		},
+
+		init: {
+			Destroy: function() {
+				start();
+				ok(true, "Destroy fired.");
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test("FilesAdded, QueueChanged", function() {
+	expect(7);
+
+	var events = {
+		FileFiltered: 0
+	};
+
+	var runtimeFiles = FileHash.getRuntimeFiles();
+
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			PostInit: function(up) {				
+				up.addFile(runtimeFiles);
+			},
+
+			Error: function() {
+				start();
+				ok(false, "Plupload cannot be initialized.");
+			}
+		},
+
+		init: {
+			FileFiltered: function(up, file) {
+				if (!events.FileFiltered) {
+					ok(true, "FileFiltered fired.");
+					ok(file instanceof plupload.File, "Second argument is plupload.File instance.");
+				}
+
+				events.FileFiltered++;
+			},
+
+			FilesAdded: function(up, files) {
+				start();
+				equal(events.FileFiltered, 2, "FileFiltered fired 2 times.");
+				ok(true, "FilesAdded fired.");
+
+				equal(files.length, runtimeFiles.length, runtimeFiles.length + " files added to the queue.");
+				ok(files[0] instanceof plupload.File, "Files in the queue are plupload.File instances.");
+			},
+
+			QueueChanged: function() {
+				ok(true, "QueueChanged fired.");
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test("FilesRemoved, QueueChanged", function() {
+	expect(4);
+
+	var events = {
+		QueueChanged: 0
+	}
+
+	var runtimeFiles = FileHash.getRuntimeFiles();
+
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			PostInit: function(up) {				
+				up.addFile(runtimeFiles);
+			},
+
+			Error: function() {
+				start();
+				ok(false, "Plupload cannot be initialized.");
+			}
+		},
+
+		init: {
+			FilesAdded: function(up, files) {
+				up.removeFile(files[0]);
+			},
+
+			FilesRemoved: function(up, removedFiles) {
+				start();
+				ok(true, "FilesRemoved fired.");
+
+				equal(events.QueueChanged, 2, "QueueChanged fired 2 times (one for file add and one for remove).");
+
+				equal(removedFiles.length, 1, "One item in second argument.");
+				equal(up.files.length, 1, "One file left in the queue.");
+			},
+
+			QueueChanged: function() {
+				events.QueueChanged++;
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test("StateChanged, BeforeUpload, UploadFile, UploadProgress, FileUploaded", function() {
+	var events = {
+		StateChanged: 0,
+		BeforeUpload: 0,
+		UploadFile: 0,
+		UploadProgress: 0,
+		FileUploaded: 0,
+		UploadComplete: 0
+	};
+
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '../upload.php',
+
+		preinit: {
+			Init: function(up, info) {	
+				var runtimeFiles = FileHash.getRuntimeFiles(info.ruid);
+				runtimeFiles[0].ruid = info.ruid; // otherwise it fails to connect to test runitme	
+				runtimeFiles[0].connectRuntime(info.ruid);		
+				up.addFile(runtimeFiles[0]);
+			},
+
+			Error: function() {
+				start();
+				ok(false, "Plupload cannot be initialized.");
+			}
+		},
+
+		init: {
+			FilesAdded: function(up) {
+				up.start();
+			},
+
+
+			BeforeUpload: function(up, file) {
+				events.BeforeUpload++;
+				ok(true, "BeforeUpload fired.");
+				ok(file instanceof plupload.File, "File to upload is plupload.File instance.");
+			},
+
+
+			UploadFile: function(up, file) {
+				events.UploadFile++;
+				ok(true, "UploadFile fired.");
+				ok(file instanceof plupload.File, "File to upload is plupload.File instance.");
+			},
+
+
+			UploadProgress: function() {
+				if (!events.UploadProgress) {
+					ok(true, "UploadProgress fired.");
+				}
+				events.UploadProgress++;
+			},
+
+
+			FileUploaded: function() {
+				ok(true, "FileUploaded fired.");
+			},
+
+
+			UploadComplete: function() {
+				start();
+
+				ok(events.UploadProgress > 0, "UploadProgress fired " + events.UploadProgress + " times.");
+				equal(events.StateChanged, 2, "StateChanged fired 2 times.");
+
+				ok(true, "UploadComplete fired.");
+			},
+
+
+			StateChanged: function(up, file) {
+				if (!events.StateChanged) {
+					ok(true, "StateChanged fired.");
+				}
+				events.StateChanged++;
+			}			
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+
+test("Error (HTTP error)", function() {
+	var events = {
+		StateChanged: 0,
+		BeforeUpload: 0,
+		UploadFile: 0,
+		UploadProgress: 0,
+		FileUploaded: 0,
+		UploadComplete: 0
+	};
+
+	var uploader = new plupload.Uploader({
+		browse_button: 'qunit-fixture',
+		runtimes: 'test',
+		url: '404',
+
+		preinit: {
+			Init: function(up, info) {	
+				var runtimeFiles = FileHash.getRuntimeFiles(info.ruid);
+				runtimeFiles[0].ruid = info.ruid; // otherwise it fails to connect to test runitme	
+				runtimeFiles[0].connectRuntime(info.ruid);	
+				up.addFile(runtimeFiles[0]);
+			}
+		},
+
+		init: {
+			FilesAdded: function(up) {
+				up.start();
+			},
+
+			Error: function(up, err) {
+				start();
+				ok(true, "Error fired.");
+				equal(err.code, plupload.HTTP_ERROR, "Error is of plupload.HTTP_ERROR type.");
+				ok(err.file instanceof plupload.File, "File passed along.");
+			}
+		}
+	});
+
+	stop();
+	uploader.init();
+});
+
+/**	
+@event OptionChanged
+@event Browse
+@event ChunkUploaded
+*/
+
+
+</script>
+</head>
+<body>
+	<div id="qunit"></div>
+    <div id="qunit-fixture" style="position: relative; top: 0 !important; left: 0 !important; width: 100%; height: 9px;"></div>
+</body>
+</html>

@@ -12,7 +12,8 @@
         "intervention/image": "^2.3",
         "zizaco/entrust": "5.2.x-dev",
         "predis/predis": "~1.0",
-        "graham-campbell/markdown": "^7.0"
+        "graham-campbell/markdown": "^7.0",
+        "qiniu/php-sdk": "^7.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

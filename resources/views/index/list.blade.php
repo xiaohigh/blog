@@ -27,11 +27,8 @@
 							<li><i class="icon-calendar3"></i> {{$v->created_at}}</li>
 							<li><a href="#"><i class="icon-user"></i> {{$v->user->name}}</a></li>
 							<li><i class="icon-folder-open"></i> <a href="#">{{$v->cate->name}}</a></li>
-							<li><a href="blog-single.html#comments"><i class="icon-comments"></i> {{$v->comment()->count()}} 评论</a></li>
-							<li><a href="#"><i class="icon-camera-retro"></i></a></li>
 						</ul>
 						<div class="entry-content">
-							<p>{{$v->info}}</p>
 							<a href="{{url('/post',['id'=>$v->id])}}"class="more-link">去瞅瞅</a>
 						</div>
 					</div>

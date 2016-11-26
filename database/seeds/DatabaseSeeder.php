@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         
         $this->call(PostTag::class);
 
+        $this->call(Serie::class);
+
         Model::reguard();
     }
 }

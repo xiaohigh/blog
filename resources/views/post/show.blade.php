@@ -26,10 +26,9 @@
                         <!-- Entry Meta
                         ============================================= -->
                         <ul class="entry-meta clearfix">
-                            <li><i class="icon-calendar3"></i>{{$post->created_at}}</li>
+                            <li><i class="icon-calendar3"></i>{{substr($post->created_at, 0, 10)}}</li>
                             <li><a href="{{url('post/list')}}?author={{$post->user->id}}"><i class="icon-user"></i> {{$post->user->name}}</a></li>
                             <li><i class="icon-folder-open"></i> <a href="{{url('post/list')}}?cate={{$post->cate->id}}">{{$post->cate->name}}</a></li>
-                            <li><a href="#comments"><i class="icon-comments"></i> {{$post->comment()->count()}} 评论</a></li>
                         </ul><!-- .entry-meta end -->
                         <hr>
                         <!-- Entry Image
