@@ -22,15 +22,7 @@ class SerieController extends Controller
      */
     public function getAdd()
     {
-        // 构建鉴权对象
-        $auth = new Auth(env('QINIU_KEY'), env('QINIU_SECRET'));
-
-        // 要上传的空间
-        $bucket = 'blog';
-
-        // 生成上传 Token
-        $token = $auth->uploadToken($bucket);
-        return view('serie.add', ['token'=>$token]);
+        return view('serie.add', ['token'=>PublicController::getQiniuImgToken()]);
     }
 
     /**
@@ -82,8 +74,7 @@ class SerieController extends Controller
      */
     public function getEdit($id)
     {
-        //return view('user.edit', ['info'=>User::find($id)]);
-        return '完善中。。。。。';
+        return view('serie.edit', ['serie'=>Serie::findOrFail($id),'token'=>PublicController::getQiniuImgToken()]);
     }
 
     /**
@@ -92,19 +83,19 @@ class SerieController extends Controller
     public function postUpdate(Request $request)
     {
         //创建模型
-        $user = new User;
-        //首先读取内容
-        $res = $user::find($request->input('id'));
-        //设置属性
-        $res -> name = $request -> input('name');
-        $res -> email = $request -> input('email');
-        //检测是否有图片上传
-        if($request->hasFile('profile')) {
-            $res -> profile = $this->uploadProfile($request);
+        $serie = Serie::findOrFail($request->id);
+        //设置
+        $serie->title = $request->input('title');
+        $serie->profile = $request->input('profile');
+        $serie->intro = $request->input('intro');
+        if($serie->profile){
+            $serie->profile = $request->input('profile');
         }
+
+
         //更新成功
-        if($res->save()) {
-            return redirect('admin/user/index')->with('success','更新成功');
+        if($serie->save()) {
+            return redirect('admin/serie/index')->with('success','更新成功');
         } else {
             return back()->with('error', '更新失败');
         }
@@ -121,6 +112,28 @@ class SerieController extends Controller
         }else{
             return back()->with('error','删除失败');
         }
+    }
+
+    /**
+     * @param $id 专辑id
+     */
+    public function show($id)
+    {
+        //获取专辑信息
+        $serie = Serie::findOrFail($id);
+        $videos = $serie->video;
+        //解析模板
+        return view('serie.show', ['serie'=>$serie, 'videos'=>$videos]);
+    }
+
+    /**
+     * 视频专辑列表显示
+     */
+    public function lists()
+    {
+        //获取专辑列表
+        $series = Serie::paginate(9);
+        return view('serie.lists', ['series'=>$series]);
     }
 
 }

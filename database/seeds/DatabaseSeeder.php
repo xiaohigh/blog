@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(Serie::class);
 
+        $this->call(Video::class);
+
         Model::reguard();
     }
 }

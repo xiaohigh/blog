@@ -13,10 +13,10 @@ use App\Http\Requests\InsertPostRequest;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 use App\Model\Serie;
+use App\Model\Video;
 
 class VideoController extends Controller
 {
-
     /**
      * 用户的添加页面显示
      */
@@ -30,8 +30,7 @@ class VideoController extends Controller
 
         $pipeline = 'hls-videos';
         $pfop = "avthumb/m3u8/segtime/10/ab/128k/ar/44100/acodec/libfaac/r/30/vb/240k/vcodec/libx264/stripmeta/0/";
-
-
+        
         $policy = array(
             'persistentOps' => $pfop,
             'persistentNotifyUrl' => '',
@@ -49,14 +48,16 @@ class VideoController extends Controller
     public function postInsert(Request $request)
     {
         //创建模型
-        $serie = new Serie;
+        $video = new Video;
         //设置
-        $serie->title = $request->input('title');
-        $serie->profile = $request->input('profile');
-        $serie->intro = $request->input('intro');
+        $video->title = $request->input('title');
+        $video->url = $request->input('url');
+        $video->serie_id = $request->input('serie_id');
+        $video->pos = $request->input('pos');
+
 
         //插入数据库
-        if($serie->save()) {
+        if($video->save()) {
             //设置角色
             //跳转到用户的列表页
             return redirect('admin/serie/index')->with('success', '添加成功');
@@ -66,25 +67,23 @@ class VideoController extends Controller
         }
     }
 
-
-
     /**
      * 用户的列表操作
      */
     public function getIndex(Request $request)
     {
         //创建模型
-        $serie = new Serie;
+        $video = new Video;
         //读取数据
-        $series = $serie->orderBy('id','desc')->where(function($query)use($request){
+        $videos = $video->orderBy('id','desc')->where(function($query)use($request){
             //如果存在关键字
             $keywords = $request->input('keywords');
             if($keywords){
-                $query->where('name','like','%'.$keywords.'%');
+                $query->where('title','like','%'.$keywords.'%');
             }
         })->paginate($request->input('num', 10));
         //分配数据并且进行模版显示
-        return view('video.index', ['series'=>$series, 'request'=>$request]);
+        return view('video.index', ['videos'=>$videos, 'request'=>$request]);
     }
 
     /**
@@ -92,8 +91,7 @@ class VideoController extends Controller
      */
     public function getEdit($id)
     {
-        //return view('user.edit', ['info'=>User::find($id)]);
-        return '完善中。。。。。';
+        return view('video.edit', ['info'=>Video::findOrFail($id), 'series'=>Serie::get(), 'token'=>PublicController::getQiniuImgToken()]);
     }
 
     /**
@@ -102,19 +100,16 @@ class VideoController extends Controller
     public function postUpdate(Request $request)
     {
         //创建模型
-        $user = new User;
-        //首先读取内容
-        $res = $user::find($request->input('id'));
-        //设置属性
-        $res -> name = $request -> input('name');
-        $res -> email = $request -> input('email');
-        //检测是否有图片上传
-        if($request->hasFile('profile')) {
-            $res -> profile = $this->uploadProfile($request);
-        }
+        $video = Video::findOrFail($request->id);
+        //设置
+        $video->title = $request->input('title');
+        $video->url = $request->input('url');
+        $video->serie_id = $request->input('serie_id');
+        $video->pos = $request->input('pos');
+
         //更新成功
-        if($res->save()) {
-            return redirect('admin/user/index')->with('success','更新成功');
+        if($video->save()) {
+            return redirect('admin/video/index')->with('success','更新成功');
         } else {
             return back()->with('error', '更新失败');
         }
@@ -126,11 +121,22 @@ class VideoController extends Controller
     public function getDelete($id)
     {
         //创建模型
-        if(Serie::where('id', $id)->delete()) {
+        if(Video::where('id', $id)->delete()) {
             return back()->with('success','删除成功');
         }else{
             return back()->with('error','删除失败');
         }
+    }
+
+    /**
+     * 视频前台显示
+     */
+    public function show($id)
+    {
+        //获取当前分类下的所有视频
+        $video = Video::findOrFail($id);
+        $videos = Video::where('serie_id', $video->serie_id)->get();
+        return view('video.show', ['video'=>$video, 'videos'=>$videos, 'id'=>$id]);
     }
 
 }

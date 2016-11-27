@@ -1,0 +1,45 @@
+<div class="sidebar nobottommargin col_last clearfix">
+    <div class="sidebar-widgets-wrap">
+
+        <div class="widget clearfix">
+
+            <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
+
+                <h4>文章推荐</h4>
+
+                <div class="tab-container" id="recom">
+
+                    <div class="tab-content clearfix" id="tabs-1">
+                        <div id="popular-post-list-sidebar">
+                            <?php foreach($hottest as $k=>$v): ?>
+                            <div class="spost clearfix">
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h4><a href="#"><?php echo e($v->title); ?></a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="widget clearfix">
+
+            <h4>云标签</h4>
+            <div class="tagcloud">
+                <?php foreach($tags as $k=>$v): ?>
+                <a href="<?php echo e(url('post/list')); ?>?tag=<?php echo e($v->name); ?>"><?php echo e($v->name); ?></a>
+                <?php endforeach; ?>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -43,7 +43,6 @@ class CateController extends Controller
             //修改
             $value['name'] = str_repeat('|------', $len-1).$value['name'];
         }
-        // dd($cates);
         return $cates;
     }
 
@@ -65,26 +64,6 @@ class CateController extends Controller
 
     /**
      * 递归方式获取分类的数组
-     * 
-     [
-        [
-            'id'=>1,
-            'name'=>'男装',
-            'pid'=>0,
-            'subCate' => 
-                [
-                    [
-                        'id'=>2,
-                        'name'=>'衬衫',
-                        'pid'=>1,
-                        'subCate'=>[
-                            []
-                        ]
-                    ]
-                ]
-        ]
-
-     ]
      */
     private function getCateByPid($pid)
     {

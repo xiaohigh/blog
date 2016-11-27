@@ -29,6 +29,15 @@
                     </div>
 
                     <div class="mws-form-row">
+                        <label class="mws-form-label">顺序</label>
+                        <div class="mws-form-item">
+                            <div id="container">
+                                <input type="text" class="small" name="pos" value="{{old('pos')}}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mws-form-row">
                         <label class="mws-form-label">系列</label>
                         <div class="mws-form-item">
                             <select name="serie_id" id="" class="small">
@@ -48,7 +57,7 @@
         			<input type="submit" value="添加" class="btn btn-danger">
         			<input type="reset" value="重置" class="btn ">
         		</div>
-        	</form>
+           </form>
             <script type="text/javascript">
                 var uploader = Qiniu.uploader({
                     runtimes: 'html5,flash,html4',      // 上传模式,依次退化
@@ -97,14 +106,6 @@
                             // 每个文件上传时,处理相关的事情
                         },
                         'FileUploaded': function(up, file, info) {
-                            // 每个文件上传成功后,处理相关的事情
-                            // 其中 info 是文件上传成功后，服务端返回的json，形式如
-                            // {
-                            //    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
-                            //    "key": "gogopher.jpg"
-                            //  }
-                            // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-
                             var res = $.parseJSON(info);
                             if(res.key) {
                                 $('#profile').val(res.key);

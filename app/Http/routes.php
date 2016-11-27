@@ -29,6 +29,11 @@ Route::post('reset', "LoginController@reset");
 Route::get('post/{id}', 'IndexController@show')->where('id','[0-9]+');
 Route::get('post/list', 'IndexController@lists');
 
+//视频显示操作
+Route::get('/video/{id}.html', 'VideoController@show');
+Route::get('/serie/{id}.html', 'SerieController@show');
+Route::get('/series', 'SerieController@lists');
+
 //后台的登录页面
 Route::get('admin/login', "AdminController@login");
 Route::post('admin/login', "AdminController@login");

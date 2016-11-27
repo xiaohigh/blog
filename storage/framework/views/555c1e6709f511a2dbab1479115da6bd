@@ -1,6 +1,4 @@
-@extends('layout.admin')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <script src="/b/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/f/plupload/js/plupload.full.min.js"></script>
     <script src="/f/js/qiniu.js"></script>
@@ -9,12 +7,12 @@
             <span>视频更新</span>
         </div>
         <div class="mws-panel-body no-padding">
-            <form class="mws-form" method="post" action="{{url('admin/video/update')}}" enctype="multipart/form-data">
+            <form class="mws-form" method="post" action="<?php echo e(url('admin/video/update')); ?>" enctype="multipart/form-data">
                 <div class="mws-form-inline">
                     <div class="mws-form-row">
                         <label class="mws-form-label">视频名称</label>
                         <div class="mws-form-item">
-                            <input type="text" class="small" name="title" value="{{$info->title}}">
+                            <input type="text" class="small" name="title" value="<?php echo e($info->title); ?>">
                         </div>
                     </div>
 
@@ -23,7 +21,7 @@
                         <div class="mws-form-item">
                             <div id="container">
                                 <button class="btn btn-info" id="pickfiles" href="javascript:;">选择文件</button>
-                                <input type="hidden" name="url" value="{{$info->url}}" id="profile">
+                                <input type="hidden" name="url" value="<?php echo e($info->url); ?>" id="profile">
                             </div>
                         </div>
                     </div>
@@ -32,7 +30,7 @@
                         <label class="mws-form-label">顺序</label>
                         <div class="mws-form-item">
                             <div id="container">
-                                <input type="text" class="small" name="pos" value="{{$info->pos}}">
+                                <input type="text" class="small" name="pos" value="<?php echo e($info->pos); ?>">
                             </div>
                         </div>
                     </div>
@@ -41,9 +39,9 @@
                         <label class="mws-form-label">系列</label>
                         <div class="mws-form-item">
                             <select name="serie_id" id="" class="small">
-                                @foreach($series as $k => $v)
-                                    <option value="{{$v['id']}}"  @if($v->id == $info->serie_id) selected @endif>{{$v['title']}}</option>
-                                @endforeach
+                                <?php foreach($series as $k => $v): ?>
+                                    <option value="<?php echo e($v['id']); ?>"  <?php if($v->id == $info->serie_id): ?> selected <?php endif; ?>><?php echo e($v['title']); ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -51,8 +49,9 @@
                 </div>
 
                 <div class="mws-button-row">
-                    {{csrf_field()}}
-                    <input type="hidden" name="id" value="{{$info->id}}">
+                    <?php echo e(csrf_field()); ?>
+
+                    <input type="hidden" name="id" value="<?php echo e($info->id); ?>">
                     <input type="submit" value="更新" class="btn btn-danger">
                     <input type="reset" value="重置" class="btn ">
                 </div>
@@ -132,4 +131,5 @@
             </script>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

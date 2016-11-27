@@ -47,8 +47,8 @@
     <div id="mws-logo-container">
 
         <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
-        <div id="mws-logo-wrap" style="color:white;font-size:28px;">
-            X-BLOG
+        <div id="mws-logo-wrap" style="color:white;font-size:20px;">
+            小high博客后台
         </div>
     </div>
 

@@ -1,28 +1,27 @@
-@extends('layout.admin')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <script src="/b/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/f/plupload/js/plupload.full.min.js"></script>
     <script src="/f/js/qiniu.js"></script>
-	<div class="mws-panel grid_8">
-    	<div class="mws-panel-header">
-        	<span>系列添加</span>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span>系列添加</span>
         </div>
         <div class="mws-panel-body no-padding">
-        	<form class="mws-form" method="post" action="{{url('admin/serie/insert')}}" enctype="multipart/form-data">
-        		<div class="mws-form-inline">
-        			<div class="mws-form-row">
-        				<label class="mws-form-label">系列名称</label>
-        				<div class="mws-form-item">
-        					<input type="text" class="small" name="title" value="{{old('title')}}">
-        				</div>
-        			</div>
-        		</div>
+            <form class="mws-form" method="post" action="<?php echo e(url('admin/serie/update')); ?>" enctype="multipart/form-data">
+                <div class="mws-form-inline">
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">系列名称</label>
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name="title" value="<?php echo e($serie->title); ?>">
+                        </div>
+                    </div>
+                </div>
                 <div class="mws-form-inline">
                     <div class="mws-form-row">
                         <label class="mws-form-label">系列主图</label>
                         <div class="mws-form-item">
                             <div id="container">
+                                <img src="<?php echo e(env('IMG_URL')); ?>/<?php echo e($serie->profile); ?>" width="200" alt=""><br>
                                 <button class="btn btn-info" id="pickfiles" href="javascript:;">选择文件</button>
                                 <input type="hidden" name="profile" id="profile">
                             </div>
@@ -34,18 +33,20 @@
                     <div class="mws-form-row">
                         <label class="mws-form-label">系列介绍</label>
                         <div class="mws-form-item">
-                            <textarea name="intro" class="small" id="" cols="30" rows="10"></textarea>
+                            <textarea name="intro" class="small" id="" cols="30" rows="10"><?php echo e($serie->intro); ?></textarea>
                         </div>
                     </div>
                 </div>
 
 
-        		<div class="mws-button-row">
-        			{{csrf_field()}}
-        			<input type="submit" value="添加" class="btn btn-danger">
-        			<input type="reset" value="重置" class="btn ">
-        		</div>
-        	</form>
+                <div class="mws-button-row">
+                    <?php echo e(csrf_field()); ?>
+
+                    <input type="submit" value="更新" class="btn btn-danger">
+                    <input type="hidden" name="id" value="<?php echo e($serie->id); ?>">
+                    <input type="reset" value="重置" class="btn ">
+                </div>
+            </form>
             <script type="text/javascript">
                 var uploader = Qiniu.uploader({
                     runtimes: 'html5,flash,html4',      // 上传模式,依次退化
@@ -107,9 +108,8 @@
                         }
                     }
                 });
-
-
             </script>
-        </div>    	
+        </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

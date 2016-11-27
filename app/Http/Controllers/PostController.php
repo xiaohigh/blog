@@ -8,6 +8,8 @@ use Config;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 
 class PostController extends Controller
 {
@@ -19,10 +21,12 @@ class PostController extends Controller
         //获取分类信息
         $cate = new CateController;
         $cates = $cate->getCates();
+
         //显示模版
         return view('post.add', [
             'cates'=>$cates,
-            'tags'=>TagController::getTags()
+            'tags'=>TagController::getTags(),
+            'token'=> PublicController::getQiniuImgToken()
             ]);
     }
 
@@ -38,12 +42,8 @@ class PostController extends Controller
         $post->cate_id = $request->cate_id;
         $post->content = $request->content;
         $post->author = $request->session()->get('uid');
+        $post->pic = $request->pic;
 
-        //检测是否有图片上传
-        if($request->hasFile('pic')) {
-            $post->pic = $this->uploadPic($request);
-        }
-        // DB::beginTransaction();
         //添加操作
         if($post->save()) {
             //插入中间表
@@ -58,48 +58,30 @@ class PostController extends Controller
                 }
                 //
                 DB::table('post_tag')->insert($data);
-                // DB::commit();
             }
 
             return redirect('admin/post/index')->with('success', '添加成功');
         }else{
-            // DB::rollBack();
             return back()->with('error','添加失败');
         }
     }
 
-    /**
-     * 图片上传操作
-     */
-    private function uploadPic($request)
-    {
-        //获取文件名称
-        $name = md5(time().rand(0,100000)).'.'.$request->file('pic')->getClientOriginalExtension();
-        $request->file('pic')->move(Config::get('app.uploadDir'), $name);
-        //设置属性 
-        return trim( Config::get('app.uploadDir'),'.' ).$name;
-    }
 
     /**
      * 文章列表显示
      */
     public function getIndex(Request $request)
     {
-        //获取每页显示的数量
-        $data['num'] = $request->input('num', 10);
-        $data['keywords'] = $request->input('keywords');
-        $data['cate_id'] = $request->input('cate_id');
-
         //获取分类信息
         $cate = new CateController;
         $cates = $cate->getCates();
 
         //创建模型
         $posts = Post::orderBy('id','desc')
-            ->where(function($query){
+            ->where(function($query) use($request){
                 //检测关键字
-                $k = Request::capture()->input('keywords');
-                $cate = Request::capture()->input('cate_id');
+                $k = $request->input('keywords');
+                $cate = $request->input('cate_id');
                 //如果不为空
                 if(!empty($k)) {
                     $query->where('title','like','%'.$k.'%');
@@ -110,11 +92,11 @@ class PostController extends Controller
             })
             ->select('posts.*','cates.name as names')
             ->join('cates','cates.id','=','posts.cate_id')
-            ->paginate($data['num']);
+            ->paginate($request->input('num', 10));
         //显示模版并分配变量
         return view('post.index', [
             'posts'=>$posts, 
-            'data'=> $data,
+            'request'=> $request,
             'cates'=>$cates
             ]);
     }
@@ -129,7 +111,7 @@ class PostController extends Controller
         //获取分类信息
         $cates = (new CateController)->getCates();
         //解析模版
-        return view('post.edit', ['cates'=>$cates, 'info'=>$info]);
+        return view('post.edit', ['cates'=>$cates, 'info'=>$info, 'token'=>PublicController::getQiniuImgToken()]);
     }
 
     /**
@@ -143,10 +125,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->cate_id = $request->cate_id;
         $post->content = $request->content;
-        //检测是否有图片上传
-        if($request->hasFile('pic')) {
-            $post->pic = $this->uploadPic($request);
-        }
+        $post->pic = $request->pic;
 
         //添加操作
         if($post->save()) {
@@ -161,12 +140,11 @@ class PostController extends Controller
      */
     public function getDelete($id)
     {
-        DB::where('id',$id)->delete();
-        // if(Post::where('id', $id)->delete()){
-        //     return back()->with('success','删除成功');
-        // }else{
-        //     return back()->with('error','删除失败');
-        // }
+         if(Post::where('id', $id)->delete()){
+             return back()->with('success','删除成功');
+         }else{
+             return back()->with('error','删除失败');
+         }
     }
 
 }

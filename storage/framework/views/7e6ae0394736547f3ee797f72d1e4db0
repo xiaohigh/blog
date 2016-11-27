@@ -1,0 +1,57 @@
+<?php $__env->startSection('con'); ?>
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <!-- Post Content
+                ============================================= -->
+                <div class="postcontent nobottommargin clearfix">
+
+                    <div class="single-post nobottommargin">
+
+                        <!-- Single Post
+                        ============================================= -->
+                        <div class="entry clearfix">
+                            <div class="entry-image">
+                                <img src="<?php echo e(env('IMG_URL')); ?>/<?php echo e($serie->profile); ?>" alt="">
+                            </div>
+                            <!-- Entry Title
+                            ============================================= -->
+                            <div class="entry-title">
+                                <h1><?php echo e($serie->title); ?></h1>
+                                <blockquote>
+                                    <p><?php echo e($serie->intro); ?></p>
+                                </blockquote>
+                            </div><!-- .entry-title end -->
+                            <hr>
+                            <div class="entry-content">
+                                <div class="list-group">
+                                    <?php foreach($videos as $k=>$v): ?>
+                                        <a href="/video/<?php echo e($v->id); ?>.html" class="list-group-item">
+                                            <i class="icon-play"></i>&nbsp;&nbsp;<?php echo e($v->title); ?>
+
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div><!-- .entry end -->
+
+                    </div>
+
+                </div>
+
+                <!-- Sidebar
+                ============================================= -->
+            <?php echo slider(); ?>
+
+            <!-- .sidebar end -->
+
+            </div>
+
+        </div>
+
+    </section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.home', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
