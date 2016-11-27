@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="146e7bc7-101b-43e0-8e31-44af6b8a119e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/QiniuController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/QiniuController.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +42,8 @@
       <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+            <state relative-caret-position="309">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -81,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="344">
               <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
               <folding>
                 <element signature="e#40#51#0#PHP" expanded="true" />
@@ -115,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QiniuController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QiniuController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QiniuController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="154">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -198,9 +198,9 @@
         <option value="$PROJECT_DIR$/resources/views/post/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/header.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QiniuController.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QiniuController.php" />
       </list>
     </option>
   </component>
@@ -276,20 +276,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -299,7 +285,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/pscws" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="route.p&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;Video&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;qiniu&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/QiniuController.php&#10;VideoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;IndexController&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/IndexController.php&#10;.env&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/.env&#10;route.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;QIniu&#9;null&#9;null&#10;videoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;function&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;PostCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;function.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;IndexCon&#9;null&#9;null&#10;6ad9e62d1ec60263b5ba6bb8480d6d84&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/storage/framework/views/6ad9e62d1ec60263b5ba6bb8480d6d84&#10;Init&#9;null&#9;null&#10;Post&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;User&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/UserController.php&#10;adminC&#9;null&#9;null&#10;Login&#9;null&#9;null&#10;VIdeo&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Model/Video.php&#10;Serie&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/SerieController.php&#10;shee&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/public/f/sheet.css" />
+    <property name="SearchEverywhereHistoryKey" value="qiniu&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/QiniuController.php&#10;Vide&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;route.p&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;Video&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;VideoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;IndexController&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/IndexController.php&#10;.env&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/.env&#10;route.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;QIniu&#9;null&#9;null&#10;videoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;function&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;PostCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;function.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;IndexCon&#9;null&#9;null&#10;6ad9e62d1ec60263b5ba6bb8480d6d84&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/storage/framework/views/6ad9e62d1ec60263b5ba6bb8480d6d84&#10;Init&#9;null&#9;null&#10;Post&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;User&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/UserController.php&#10;adminC&#9;null&#9;null&#10;Login&#9;null&#9;null&#10;VIdeo&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Model/Video.php&#10;Serie&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/SerieController.php&#10;shee&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/public/f/sheet.css" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -350,12 +336,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1480155890078</updated>
-      <workItem from="1480155892187" duration="33586000" />
+      <workItem from="1480155892187" duration="34122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33586000" />
+    <option name="totallyTimeSpent" value="34122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="0" />
@@ -369,7 +355,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.03292181" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13305898" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23319615" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23319615" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -817,14 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QiniuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -835,15 +813,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        <state relative-caret-position="309">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="344">
           <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
           <folding>
             <element signature="e#40#51#0#PHP" expanded="true" />
@@ -860,6 +838,14 @@
             <element signature="e#3058#3288#0#PHP" expanded="false" />
             <element signature="e#3294#3319#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QiniuController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
