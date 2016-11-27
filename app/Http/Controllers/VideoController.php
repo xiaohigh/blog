@@ -33,7 +33,7 @@ class VideoController extends Controller
 
         $policy = array(
             'persistentOps' => $pfop,
-            'persistentNotifyUrl' => '',
+            'persistentNotifyUrl' => env('URL').'/qiniu/callback',
             'persistentPipeline' => $pipeline
         );
 

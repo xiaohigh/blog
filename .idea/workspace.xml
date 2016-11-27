@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="146e7bc7-101b-43e0-8e31-44af6b8a119e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.sqls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160503/0737db721a99ed4a97cad8e0a15f6d3d.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160503/54f387bf9af9a4f82d9b0bd83a7810cf.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160503/5a7e8aa9b2bee70dd616425a12de013d.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160503/6ee8cc33083bcbeea2f111094f0d0102.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160504/1462357291113689.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160504/8953dad61f81eac71290f85a31690d8a.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160504/babf654de0f83c94ee45618acbfa80f8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160504/e1b7b46b3bac1204838d0dcd1c7180de.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20160505/c56fdf72d1e3da073402451ebb22f31e.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20161125/1d74a353949abc980913ca84608d9b6b.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20161125/7098bcd0ff482d92c482fe20683282a4.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20161125/87584479dfe4e2d7e71183fd090cc6ba.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20161125/b9d51a48b313e228d19ef46c2d1ccf40.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20161126/222f6c031fdf41c638cad935ba5ba2ac.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/u/20161126/81af196924177f6b1fbd976751d1e1cc.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/index/list.blade.php" afterPath="$PROJECT_DIR$/resources/views/post/list.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Common/function.php" afterPath="$PROJECT_DIR$/app/Common/function.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/InsertPostRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/InsertPostRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout/slider.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout/slider.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/post/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/post/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/video/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/video/show.blade.php" />
     </list>
     <ignored path="blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +42,8 @@
       <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="9" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="9" />
+            <state relative-caret-position="419">
+              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -109,27 +81,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VideoController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
+            <state relative-caret-position="322">
+              <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
               <folding>
                 <element signature="e#40#51#0#PHP" expanded="true" />
                 <element signature="e#353#381#0#PHP" expanded="false" />
-                <element signature="e#386#1031#0#PHP" expanded="false" />
-                <element signature="e#1037#1063#0#PHP" expanded="false" />
-                <element signature="e#1068#1647#0#PHP" expanded="false" />
-                <element signature="e#1653#1679#0#PHP" expanded="false" />
-                <element signature="e#1684#2213#0#PHP" expanded="false" />
-                <element signature="e#2219#2245#0#PHP" expanded="false" />
-                <element signature="e#2250#2430#0#PHP" expanded="false" />
-                <element signature="e#2436#2462#0#PHP" expanded="false" />
-                <element signature="e#2467#2995#0#PHP" expanded="false" />
-                <element signature="e#3001#3027#0#PHP" expanded="false" />
-                <element signature="e#3032#3262#0#PHP" expanded="false" />
-                <element signature="e#3268#3293#0#PHP" expanded="false" />
-                <element signature="e#3298#3552#0#PHP" expanded="false" />
+                <element signature="e#1063#1089#0#PHP" expanded="false" />
+                <element signature="e#1094#1673#0#PHP" expanded="false" />
+                <element signature="e#1679#1705#0#PHP" expanded="false" />
+                <element signature="e#1710#2239#0#PHP" expanded="false" />
+                <element signature="e#2245#2271#0#PHP" expanded="false" />
+                <element signature="e#2276#2456#0#PHP" expanded="false" />
+                <element signature="e#2462#2488#0#PHP" expanded="false" />
+                <element signature="e#2493#3021#0#PHP" expanded="false" />
+                <element signature="e#3027#3053#0#PHP" expanded="false" />
+                <element signature="e#3058#3288#0#PHP" expanded="false" />
+                <element signature="e#3294#3319#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -145,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QiniuController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QiniuController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QiniuController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+            <state relative-caret-position="396">
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -158,8 +128,8 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+            <state relative-caret-position="114">
+              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -200,7 +170,6 @@
         <option value="$PROJECT_DIR$/resources/views/serie/lists.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/serie/add.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/post/add.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PublicController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CateController.php" />
         <option value="$PROJECT_DIR$/resources/views/post/index.blade.php" />
@@ -225,12 +194,13 @@
         <option value="$PROJECT_DIR$/resources/views/post/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" />
         <option value="$PROJECT_DIR$/resources/views/video/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/post/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QiniuController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" />
       </list>
     </option>
   </component>
@@ -329,7 +299,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/pscws" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="qiniu&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/QiniuController.php&#10;VideoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;IndexController&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/IndexController.php&#10;.env&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/.env&#10;route.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;QIniu&#9;null&#9;null&#10;videoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;function&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;PostCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;function.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;IndexCon&#9;null&#9;null&#10;6ad9e62d1ec60263b5ba6bb8480d6d84&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/storage/framework/views/6ad9e62d1ec60263b5ba6bb8480d6d84&#10;Init&#9;null&#9;null&#10;Post&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;User&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/UserController.php&#10;adminC&#9;null&#9;null&#10;Login&#9;null&#9;null&#10;Video&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;VIdeo&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Model/Video.php&#10;Serie&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/SerieController.php&#10;shee&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/public/f/sheet.css" />
+    <property name="SearchEverywhereHistoryKey" value="route.p&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;Video&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;qiniu&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/QiniuController.php&#10;VideoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;IndexController&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/IndexController.php&#10;.env&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/.env&#10;route.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/routes.php&#10;QIniu&#9;null&#9;null&#10;videoCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/VideoController.php&#10;function&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;PostCon&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;function.php&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Common/function.php&#10;IndexCon&#9;null&#9;null&#10;6ad9e62d1ec60263b5ba6bb8480d6d84&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/storage/framework/views/6ad9e62d1ec60263b5ba6bb8480d6d84&#10;Init&#9;null&#9;null&#10;Post&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/PostController.php&#10;User&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/UserController.php&#10;adminC&#9;null&#9;null&#10;Login&#9;null&#9;null&#10;VIdeo&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Model/Video.php&#10;Serie&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/app/Http/Controllers/SerieController.php&#10;shee&#9;FILE&#9;file:///Users/xiaohigh/www/sites/blog/public/f/sheet.css" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -380,12 +350,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1480155890078</updated>
-      <workItem from="1480155892187" duration="33425000" />
+      <workItem from="1480155892187" duration="33586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33425000" />
+    <option name="totallyTimeSpent" value="33586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="0" />
@@ -770,14 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -821,14 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/login/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -863,35 +817,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QiniuController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#51#0#PHP" expanded="true" />
-            <element signature="e#353#381#0#PHP" expanded="false" />
-            <element signature="e#386#1031#0#PHP" expanded="false" />
-            <element signature="e#1037#1063#0#PHP" expanded="false" />
-            <element signature="e#1068#1647#0#PHP" expanded="false" />
-            <element signature="e#1653#1679#0#PHP" expanded="false" />
-            <element signature="e#1684#2213#0#PHP" expanded="false" />
-            <element signature="e#2219#2245#0#PHP" expanded="false" />
-            <element signature="e#2250#2430#0#PHP" expanded="false" />
-            <element signature="e#2436#2462#0#PHP" expanded="false" />
-            <element signature="e#2467#2995#0#PHP" expanded="false" />
-            <element signature="e#3001#3027#0#PHP" expanded="false" />
-            <element signature="e#3032#3262#0#PHP" expanded="false" />
-            <element signature="e#3268#3293#0#PHP" expanded="false" />
-            <element signature="e#3298#3552#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="396">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QiniuController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        <state relative-caret-position="114">
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VideoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+          <folding>
+            <element signature="e#40#51#0#PHP" expanded="true" />
+            <element signature="e#353#381#0#PHP" expanded="false" />
+            <element signature="e#1063#1089#0#PHP" expanded="false" />
+            <element signature="e#1094#1673#0#PHP" expanded="false" />
+            <element signature="e#1679#1705#0#PHP" expanded="false" />
+            <element signature="e#1710#2239#0#PHP" expanded="false" />
+            <element signature="e#2245#2271#0#PHP" expanded="false" />
+            <element signature="e#2276#2456#0#PHP" expanded="false" />
+            <element signature="e#2462#2488#0#PHP" expanded="false" />
+            <element signature="e#2493#3021#0#PHP" expanded="false" />
+            <element signature="e#3027#3053#0#PHP" expanded="false" />
+            <element signature="e#3058#3288#0#PHP" expanded="false" />
+            <element signature="e#3294#3319#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
