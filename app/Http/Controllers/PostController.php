@@ -91,7 +91,7 @@ class PostController extends Controller
                 }
             })
             ->select('posts.*','cates.name as names')
-            ->join('cates','cates.id','=','posts.cate_id')
+            ->leftjoin('cates','cates.id','=','posts.cate_id')
             ->paginate($request->input('num', 10));
         //显示模版并分配变量
         return view('post.index', [
@@ -147,4 +147,44 @@ class PostController extends Controller
          }
     }
 
+    /**
+     * 文章列表页
+     */
+    public function lists(Request $request)
+    {
+        //获取文章的列表显示
+        $posts = Post::orderBy('created_at','desc')
+            ->where(function($query)use($request){
+                //分类id进行筛选
+                if($cid = $request -> input('cid')) {
+                    $query->where('cate_id', $cid);
+                }
+                //关键字筛选
+                if($keywords = $request->input('keywords')) {
+                    $query->where('title','like','%'.$keywords.'%');
+                }
+                //标签搜索
+                if($tag = $request->input('tag')) {
+                    $ids = TagController::getPostIdsByTagName($tag);
+                    //获取tag
+                    $query->whereIn('id', $ids);
+                }
+            })
+            ->paginate(10);
+        //将参数压入到页码中
+        $posts->appends($request->all());
+        //解析模版
+        return view('post.list', ['posts'=>$posts,'input'=>$request->all()]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     * 文章详情
+     */
+    public function show($id)
+    {
+        $post = Post::find($id);
+        //获取
+        return view('post.show', ['post'=>$post]);
+    }
 }

@@ -5,17 +5,17 @@
 
             <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
-                <h4>文章推荐</h4>
+                <h4>最新文章</h4>
 
                 <div class="tab-container" id="recom">
 
                     <div class="tab-content clearfix" id="tabs-1">
                         <div id="popular-post-list-sidebar">
-                            @foreach($hottest as $k=>$v)
+                            @foreach($lastest as $k=>$v)
                             <div class="spost clearfix">
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h4><a href="#">{{$v->title}}</a></h4>
+                                        <h4><a href="{{route('post-detail', ['id'=>$v->id])}}.html">{{$v->title}}</a></h4>
                                     </div>
                                 </div>
                             </div>

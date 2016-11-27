@@ -15,19 +15,7 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     * 文章详情
-     */
-    public function show($id)
-    {
-        //文章浏览数自增
-        $this->addViews($id);
-        
-    	$post = Post::find($id);
-    	//获取
-    	return view('post.show', ['post'=>$post]);
-    }
+    
 
     /**
      * 浏览数自增操作
@@ -46,35 +34,7 @@ class IndexController extends Controller
         }
     }
 
-    /**
-     * 文章列表页
-     */
-    public function lists(Request $request)
-    {
-        //获取文章的列表显示
-        $posts = Post::orderBy('created_at','desc')
-            ->where(function($query)use($request){
-                //分类id进行筛选
-                if($cid = $request -> input('cid')) {
-                    $query->where('cate_id', $cid);
-                }
-                //关键字筛选
-                if($keywords = $request->input('keywords')) {
-                    $query->where('title','like','%'.$keywords.'%');
-                }
-                //标签搜索
-                if($tag = $request->input('tag')) {
-                    $ids = TagController::getPostIdsByTagName($tag);
-                    //获取tag
-                    $query->whereIn('id', $ids);
-                }
-            })
-            ->paginate(10);
-        //将参数压入到页码中    
-        $posts->appends($request->all());
-        //解析模版
-        return view('index.list', ['posts'=>$posts,'input'=>$request->all()]);
-    }
+
 
     /**
      * 显示页面的头部
@@ -87,6 +47,21 @@ class IndexController extends Controller
         $request = Request::capture()->all();
         //解析模版
         return view('layout.header', ['cates'=>$cates,'request'=>$request]);
+    }
+
+    public static function slider()
+    {
+
+        //获取最新的五篇文章
+        $last = \App\Model\Post::orderBy('created_at', 'desc')->limit(5)->get();
+
+        //获得所有的标签
+        $tags = \App\Http\Controllers\TagController::getTags();
+
+        return view('layout.slider', [
+            'lastest' => $last,
+            'tags' => $tags
+        ])->render();
     }
 
 

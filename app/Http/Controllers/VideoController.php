@@ -30,7 +30,7 @@ class VideoController extends Controller
 
         $pipeline = 'hls-videos';
         $pfop = "avthumb/m3u8/segtime/10/ab/128k/ar/44100/acodec/libfaac/r/30/vb/240k/vcodec/libx264/stripmeta/0/";
-        
+
         $policy = array(
             'persistentOps' => $pfop,
             'persistentNotifyUrl' => '',

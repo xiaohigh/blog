@@ -28,15 +28,16 @@
                         <ul class="entry-meta clearfix">
                             <li><i class="icon-calendar3"></i>{{substr($post->created_at, 0, 10)}}</li>
                             <li><a href="{{url('post/list')}}?author={{$post->user->id}}"><i class="icon-user"></i> {{$post->user->name}}</a></li>
-                            <li><i class="icon-folder-open"></i> <a href="{{url('post/list')}}?cate={{$post->cate->id}}">{{$post->cate->name}}</a></li>
+                            @if(!empty($post->cate))<li> <i class="icon-folder-open"></i> <a href="{{url('post/list')}}?cate={{$post->cate->id}}">{{$post->cate->name}}</a></li> @endif
                         </ul><!-- .entry-meta end -->
                         <hr>
                         <!-- Entry Image
                         ============================================= -->
-                        <!-- <div class="entry-image">
-                            <a href="#"><img src="{{$post->pic}}" alt=""></a>
-                        </div> --><!-- .entry-image end -->
-
+                        @if($post->pic)
+                        <div class="entry-image">
+                            <a href="#"><img src="{{env('IMG_URL')}}/{{$post->pic}}" alt=""></a>
+                        </div>
+                        @endif
                         <!-- Entry Content
                         ============================================= -->
                         <div class="entry-content notopmargin">
@@ -54,10 +55,7 @@
 
             </div>
 
-            <!-- Sidebar
-            ============================================= -->
             {!!slider()!!}
-            <!-- .sidebar end -->
 
         </div>
 

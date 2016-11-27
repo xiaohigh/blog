@@ -26,12 +26,17 @@ Route::get('reset', "LoginController@reset");
 Route::post('reset', "LoginController@reset");
 
 //文章操作
-Route::get('post/{id}', 'IndexController@show')->where('id','[0-9]+');
-Route::get('post/list', 'IndexController@lists');
+Route::get('post/{id}.html', [
+	'as' => 'post-detail',
+	'uses' => 'PostController@show'
+
+])->where('id','[0-9]+');
+
+Route::get('post/list', 'PostController@lists');
 
 //视频显示操作
-Route::get('/video/{id}.html', 'VideoController@show');
-Route::get('/serie/{id}.html', 'SerieController@show');
+Route::get('/video/{id}.html', 'VideoController@show')->where('id','[0-9]+');;
+Route::get('/serie/{id}.html', 'SerieController@show')->where('id','[0-9]+');;
 Route::get('/series', 'SerieController@lists');
 
 //后台的登录页面
@@ -44,6 +49,8 @@ Route::post('comment/insert', [
 	'uses' => 'CommentController@insert',
 	'middleware' => 'login'
 	]);
+
+Route::post('/qiniu/callback','QiniuController@callbacks');
 
 //后台相关操作 需要登录 验证
 Route::group(['middleware'=>['login']], function(){

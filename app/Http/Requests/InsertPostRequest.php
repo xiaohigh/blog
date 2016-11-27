@@ -26,7 +26,7 @@ class InsertPostRequest extends Request
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|same:repassword|regex:/^\w{6,10}$/',
+            'password' => 'required|same:repassword|regex:/^\S{6,20}$/',
         ];
     }
 
@@ -39,7 +39,7 @@ class InsertPostRequest extends Request
             'name.required' => '用户名不能省略',
             'email.required' => '邮箱不能省略',
             'email.email' => '格式必须是邮箱',
-            'password.regex'=>'密码必须为6~10位字母数字下划线',
+            'password.regex'=>'密码必须为6~20位字母数字下划线',
             'password.max'=>'不能超过10位',
             'password.min'=>'不能小于6位',
             'password.required'=>'密码必须填写',

@@ -20,8 +20,8 @@
                                 <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
                                 <video id='video'  class="video-js vjs-default-skin" controls data-setup='{"fluid": true}'>
                                     <source
-                                            src="http://odq99fvnh.bkt.clouddn.com/{{$video->m3u8}}"
-                                            type="application/x-mpegURL">
+                                            src="{{env('VIDEO_URL')}}/@if(!empty($video->m3u8)){{$video->m3u8}}@else{{$video->url}}@endif"
+                                            @if(!empty($video->m3u8)) type="application/x-mpegURL" @endif>
                                 </video>
                                 <script src="http://vjs.zencdn.net/5.8.8/video.js"></script>
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/3.6.0/videojs-contrib-hls.min.js"></script>

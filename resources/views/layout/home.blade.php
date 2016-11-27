@@ -42,11 +42,6 @@
 
 {!!\App\Http\Controllers\IndexController::header()!!}
 
-
-<!-- Page Title
-		============================================= -->
-
-
     <!-- Content
     ============================================= -->
     @section('con')
@@ -103,7 +98,7 @@
             </div>
 
         </section><!-- #content end -->
-@show
+    @show
 <!-- Footer
 		============================================= -->
     <footer id="footer" class="dark">

@@ -1,4 +1,4 @@
-@extends('login.login')
+@extends('layout.home')
 
 @section('con')
 <section id="content">
@@ -18,10 +18,10 @@
 
 					<div class="entry clearfix">
 						<div class="entry-image">
-							<a href="{{url('/post',['id'=>$v->id])}}"><img class="image_fade" src="{{$v->pic}}" alt="{{$v->title}}"></a>
+							<a href="{{route('post-detail',['id'=>$v->id])}}"><img class="image_fade" src="{{env('IMG_URL')}}/{{$v->pic}}" alt="{{$v->title}}"></a>
 						</div>
 						<div class="entry-title">
-							<h2><a href="{{url('/post',['id'=>$v->id])}}">{{$v->title}}</a></h2>
+							<h2><a href="{{route('post-detail',['id'=>$v->id])}}">{{$v->title}}</a></h2>
 						</div>
 
 					</div>
@@ -47,7 +47,7 @@
 
 			<!-- Sidebar
 			============================================= -->
-			{!!slider()!!}
+			{!!\App\Http\Controllers\IndexController::slider()!!}
 			<!-- .sidebar end -->
 				
 		</div>
